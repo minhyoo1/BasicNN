@@ -10,10 +10,11 @@ class MLP(nn.Module):
         self.dropout = nn.Dropout(p=drop_prob)
         self.linear1 = nn.Linear(784, 512)
         self.linear2 = nn.Linear(512, 512)
+        self.linear3 = nn.Linear(512, 256)
         '''
         add here
         '''
-        self.reduce_layer = nn.Linear(512, num_class)
+        self.reduce_layer = nn.Linear(256, num_class)
         self.logsoftmax = nn.LogSoftmax(dim=1)
        
     def forward(self, x):
